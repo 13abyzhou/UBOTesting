@@ -1,6 +1,7 @@
 #coding=utf-8
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
 import unittest, time
 import sys
 import userinfo
@@ -17,4 +18,4 @@ def login(self):
     driver.find_element_by_xpath("/html/body/div/div/div/div/form/fieldset/ng-switch/div/div[2]/input").clear()
     driver.find_element_by_xpath("/html/body/div/div/div/div/form/fieldset/ng-switch/div/div[2]/input").send_keys(password)
     driver.find_element_by_xpath("/html/body/div/div/div/div/form/fieldset/div/button").click()
-    time.sleep(3)
+    time.sleep(2)

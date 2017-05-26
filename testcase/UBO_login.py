@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 
 import sys
@@ -29,7 +29,11 @@ class Login(unittest.TestCase):
         driver.maximize_window()
         #调用登录模块        
         login.login(self)
+        driver.find_element_by_css_selector("span.icon.icon-dropdown").click()
+        driver.find_element_by_xpath("//img[@alt='CasinoEngine']").click()
+
         #调用登出模块
+        
         logout.logout(self)
 
     def is_element_present(self, how, what):

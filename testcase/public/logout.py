@@ -15,5 +15,7 @@ def logout(self):
     driver.find_element_by_xpath("//input[@type='password']").clear()
     driver.find_element_by_xpath("//input[@type='password']").send_keys("ASdf!@34")
     time.sleep(3)
+    try: self.assertEqual("You have successfully logged out", driver.find_element_by_css_selector("span.NotificationText.ng-binding").text)
+    except AssertionError as e: self.verificationErrors.append(str(e))
     driver.close()
     

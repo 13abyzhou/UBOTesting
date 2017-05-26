@@ -36,9 +36,13 @@ class UBOSearch(unittest.TestCase):
         driver.find_element_by_xpath("(//input[@type='text'])[3]").clear()
         driver.find_element_by_xpath("(//input[@type='text'])[3]").send_keys("shawntest")
         time.sleep(2)
-        driver.find_element_by_xpath("//button[3]").click()
+        driver.find_element_by_xpath("//button[3]").click()  
         time.sleep(3)
-
+        numb=driver.find_element_by_xpath("/html/body/div[1]/div/div[2]/div/div/div/div/section/div[1]/div/div[1]/ubo-casino-total-page/div").text
+        print numb
+        print numb[18:]
+        numb2=int(numb[18:])+1
+        print numb2
         logout.logout(self)
 
         
